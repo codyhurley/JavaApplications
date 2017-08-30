@@ -40,7 +40,7 @@ public class TestPoint {
 		System.out.println("The distance between these two points is " + p1.getDistance(p2));
 		
 		
-		
+	
 	}
 
 }
