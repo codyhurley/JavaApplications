@@ -40,5 +40,6 @@ public class Circle extends Shape {
 			return radius * 2;
 			
 		}
+	//you may want to add a toString() method
 		
 }
