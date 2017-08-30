@@ -55,7 +55,7 @@ public class TestShape {
 		System.out.println("It is " + r1.getColor() + "-colored.");
 		
 		
-		
+	
 
 	}
 
