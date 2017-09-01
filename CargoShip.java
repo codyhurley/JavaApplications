@@ -26,7 +26,7 @@ public class CargoShip extends Ship{
 
 	public String ToString() {
 		
-		return "Ship Name: " + getName() + "Cargo Capacity: " + getCargoStorage();
+		return "Ship Name: " + getName() + "Cargo Capacity: " + getCargoStorage() + " tons";
 		
 	}
 	
