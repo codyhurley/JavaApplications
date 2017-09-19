@@ -1,6 +1,8 @@
 
 public interface Comparable {
 	
-	public abstract 
+	public boolean equals ();
+	public boolean isGreater ();
+	public boolean isLessThan ();
 	
 }
