@@ -4,7 +4,7 @@ public class InvalidNumbers {
 
 	public static void main(String[] args) {
 		
-		boolean error = false;
+		boolean error = true;
 		
 		Scanner input = new Scanner(System.in);
 		int positiveInteger = 0;
@@ -17,16 +17,19 @@ public class InvalidNumbers {
 				
 				positiveInteger = input.nextInt();
 				
-				if (positiveInteger <= 0) {
+				if (positiveInteger <= -1) {
 					throw new InputMismatchException ("I asked for a POSITIVE integer.");
 				}
-				error = true;
+				
+				error = false;
 				
 			} catch (InputMismatchException e) {
 				System.out.println("I asked for an POSITIVE INTEGER.");
+			} catch (Exception e) {
+				System.out.println("A letter? REALLY?!");
 			}
 			
-		} while (positiveInteger <= 0);
+		} while (error);
 	}
 
 }
