@@ -14,6 +14,7 @@ public class DrawGeoObject extends JFrame {
 	private int y;
 	private int width;
 	private int height;
+	private int shape;
 	
 	
 	public DrawGeoObject() {
@@ -82,23 +83,36 @@ public class DrawGeoObject extends JFrame {
 			subPanel6.add(drawOval);
 			subPanel6.add(drawRectangle);
 			
+			drawOval.addActionListener(new DrawListener());
+			drawRectangle.addActionListener(new DrawListener());
+			
 			
 			
 
 		}
 
+		
+		
+		
 		private class DrawListener implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
-
+				
 				x = (int) Double.parseDouble(startingX.getText());
 				y = (int) Double.parseDouble(startingY.getText());
 				width = (int) Double.parseDouble(widthValue.getText());
 				height = (int) Double.parseDouble(heightValue.getText());
 				
+				if (e.getSource() == drawOval) {
+					shape = 0;
+				} else if (e.getSource() == drawRectangle) {
+					shape = 1;
+				}
+				
+				rightPanel.repaint();
 				
 			}
+
 		}
-		
 		
 	}
 
@@ -113,47 +127,32 @@ public class DrawGeoObject extends JFrame {
 			
 		}
 		
-		public class OvalListener implements ActionListener {
-			public void actionPerformed (ActionEvent e) {
-				
-				public void paintComponent(Graphics g) {
-					super.paintComponent(g);
+		public void paintComponent(Graphics g) {
+			super.paintComponent(g);
 
-					g.setColor(Color.BLACK);
+			g.setColor(Color.BLACK);
 			
+			if (shape == 0) {
+				if (filled.isSelected() == true) {
+					g.fillOval(x, y, width, height);
+				} else {
+					g.drawOval(x, y, width, height);
+				}
+			} else if (shape == 1) {
+				if (filled.isSelected() == true) {
+					g.fillRect(x, y, width, height);
+				} else {
+					g.drawRect(x, y, width, height);
+				}
+			}
 			
-					if (filled.isSelected() == true) {
-						g.fillOval(x, y, width, height);
-					} else {
-						g.drawOval(x, y, width, height);
-					}
 
 			repaint();
 		}
-				
-				
 		
-		}
-			public class RectListener implements ActionListener {
-				public void actionPerformed (ActionEvent e) {
-					
-					public void paintComponent(Graphics g) {
-						super.paintComponent(g);
-
-						g.setColor(Color.BLACK);
-				
-				
-						if (filled.isSelected() == true) {
-							g.fillRect(x, y, width, height);
-						} else {
-							g.drawRect(x, y, width, height);
-						}
-
-				repaint();
-			}
-					
-			
-
+		
+		
+		
 	}
 
 	public static void main(String[] args) {
