@@ -5,7 +5,17 @@ import javax.swing.*;
 public class DrawGeoObject extends JFrame {
 
 	private JPanel leftPanel, rightPanel;
-
+	private JCheckBox filled = new JCheckBox ();
+	
+	JButton drawOval = new JButton ("Draw Oval");
+	JButton drawRectangle = new JButton("Draw Rectangle");
+	
+	private int x;
+	private int y;
+	private int width;
+	private int height;
+	
+	
 	public DrawGeoObject() {
 
 		setLayout(new GridLayout(1, 2));
@@ -22,14 +32,6 @@ public class DrawGeoObject extends JFrame {
 	}
 
 	private class LeftPanel extends JPanel {
-
-		private int x;
-		private int y;
-		private int width;
-		private int height;
-		
-		
-		
 		
 		JPanel subPanel1 = new JPanel();
 		JPanel subPanel2 = new JPanel();
@@ -46,10 +48,9 @@ public class DrawGeoObject extends JFrame {
 		JLabel widthLabel = new JLabel ("w");
 		JTextField heightValue = new JTextField (10);
 		JLabel heightLabel = new JLabel ("h");
-		JCheckBox filled = new JCheckBox ();
+		
 		JLabel fillLabel = new JLabel ("Filled");
-		JButton drawOval = new JButton ("Draw Oval");
-		JButton drawRectangle = new JButton("Draw Rectangle");
+		
 		
 		public LeftPanel() {
 			
@@ -82,6 +83,7 @@ public class DrawGeoObject extends JFrame {
 			subPanel6.add(drawRectangle);
 			
 			
+			
 
 		}
 
@@ -92,34 +94,65 @@ public class DrawGeoObject extends JFrame {
 				y = (int) Double.parseDouble(startingY.getText());
 				width = (int) Double.parseDouble(widthValue.getText());
 				height = (int) Double.parseDouble(heightValue.getText());
+				
+				
 			}
 		}
 		
-		private class fillCheck implements ItemListener {
-			public void itemStateChanged(ItemEvent e) {
-				
-				if (filled.isSelected() == true) {
-					
-				}
-				
-			}
-		}
+		
 	}
 
 	private class RightPanel extends JPanel {
 
-		int xDragged, yDragged;
-		int xPressed, yPressed;
+		
 
 		public RightPanel() {
 
 			setPreferredSize(new Dimension(500, 800));
 			setBackground(Color.WHITE);
 			
-
 		}
-
 		
+		public class OvalListener implements ActionListener {
+			public void actionPerformed (ActionEvent e) {
+				
+				public void paintComponent(Graphics g) {
+					super.paintComponent(g);
+
+					g.setColor(Color.BLACK);
+			
+			
+					if (filled.isSelected() == true) {
+						g.fillOval(x, y, width, height);
+					} else {
+						g.drawOval(x, y, width, height);
+					}
+
+			repaint();
+		}
+				
+				
+		
+		}
+			public class RectListener implements ActionListener {
+				public void actionPerformed (ActionEvent e) {
+					
+					public void paintComponent(Graphics g) {
+						super.paintComponent(g);
+
+						g.setColor(Color.BLACK);
+				
+				
+						if (filled.isSelected() == true) {
+							g.fillRect(x, y, width, height);
+						} else {
+							g.drawRect(x, y, width, height);
+						}
+
+				repaint();
+			}
+					
+			
 
 	}
 
