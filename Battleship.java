@@ -5,13 +5,13 @@ import javax.swing.border.Border;
 
 public class Battleship extends JFrame{
 	
-	private JPanel turnPanel, fieldPanel, spacePanel, oneShipPanel, twoShipPanel, threeShipPanel;
+	JPanel turnPanel, fieldPanel, spacePanel, oneShipPanel, twoShipPanel, threeShipPanel;
 	
-	private int turnsTaken = 0;
-	private int hit1 = 0;
-	private int hit2 = 0;
-	private int hit3 = 0;
-	private int miss = 0;
+	int turnsTaken = 0;
+	int hit1 = 0;
+	int hit2 = 0;
+	int hit3 = 0;
+	int miss = 0;
 	
 	
 	public Battleship() {
@@ -35,7 +35,7 @@ public class Battleship extends JFrame{
 		
 	}
 	
-	private class TurnPanel extends JPanel {
+	class TurnPanel extends JPanel {
 		
 		JButton turnCount = new JButton("Turns Taken: " + turnsTaken + "");
 		
@@ -49,7 +49,7 @@ public class Battleship extends JFrame{
 		
 	}
 	
-	private class FieldPanel extends JPanel {
+	class FieldPanel extends JPanel {
 		
 		JPanel space1 = new SpacePanel();
 		JPanel space2 = new SpacePanel();
@@ -207,9 +207,9 @@ public class Battleship extends JFrame{
 			space47.addMouseListener(new MissListener());
 			space48.addMouseListener(new MissListener());
 			space49.addMouseListener(new MissListener());
+		}
 			
-			
-			public class MissListener implements MouseListener {
+			class MissListener implements MouseListener {
 				public void mouseClicked(MouseEvent e) {
 					turnsTaken += 1;
 					miss = 1;
@@ -240,7 +240,7 @@ public class Battleship extends JFrame{
 				}
 			}
 			
-			public class HitOneListener implements MouseListener {
+			class HitOneListener implements MouseListener {
 				public void mouseClicked(MouseEvent e) {
 					hit1 = 1;
 				}
@@ -270,7 +270,7 @@ public class Battleship extends JFrame{
 				}
 			}
 			
-			public class HitTwoListener implements MouseListener {
+			class HitTwoListener implements MouseListener {
 				public void mouseClicked(MouseEvent e) {
 					turnsTaken += 1;
 					hit2 = 1;
@@ -301,7 +301,7 @@ public class Battleship extends JFrame{
 				}
 			}
 			
-			public class HitThreeListener implements MouseListener {
+			class HitThreeListener implements MouseListener {
 				public void mouseClicked(MouseEvent e) {
 					turnsTaken += 1;
 					hit3 = 1;
@@ -338,7 +338,7 @@ public class Battleship extends JFrame{
 		
 	}
 	
-	private class SpacePanel extends JPanel {
+	class SpacePanel extends JPanel {
 		
 		public SpacePanel() {
 			
@@ -356,7 +356,7 @@ public class Battleship extends JFrame{
 		
 	}
 	
-	private class OneShipPanel extends JPanel {
+	class OneShipPanel extends JPanel {
 		
 		public OneShipPanel() {
 			
@@ -381,7 +381,7 @@ public class Battleship extends JFrame{
 		
 	}
 	
-	private class TwoShipPanel extends JPanel {
+	class TwoShipPanel extends JPanel {
 		
 			public TwoShipPanel() {
 			
@@ -407,7 +407,7 @@ public class Battleship extends JFrame{
 	}
 	
 	
-	private class ThreeShipPanel extends JPanel {
+	class ThreeShipPanel extends JPanel {
 		
 		public ThreeShipPanel() {
 		
@@ -430,7 +430,7 @@ public class Battleship extends JFrame{
 	
 	
 	
-	}
+
 
 
 	public static void main(String args[]) {
